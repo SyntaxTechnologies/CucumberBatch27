@@ -1,0 +1,48 @@
+first we will learn a tool called cucumber
+we will learn framework
+
+why do we need to learn this?
+main method -
+artifact/proof -
+execute my test cases across chrome, firefox, safari, edge etc
+write understandable test cases
+scalable, data driven
+
+
+java -
+selenium -
+cucumber -
+commons io -
+apache -
+
+src - main and test folder
+main - the code we use to develop the application
+test - the code we use to test the application
+
+we don't need main folder since the code we will write is for testing the application
+
+we need both java and non java in project
+
+java - will keep all java classes
+resources - all non java stuff
+
+cucumber - it is a tool which allows us to write testcases in gherkin language that follows BDD approach
+
+Given user is able to launch the application
+When user enters username and password
+And user clicks on login button
+Then user is navigated to homepage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
