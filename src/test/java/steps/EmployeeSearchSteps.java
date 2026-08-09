@@ -34,5 +34,12 @@ public class EmployeeSearchSteps extends CommonMethods {
         System.out.println("employee details can be seen now");
     }
 
+    @When("user enters employee name")
+    public void user_enters_employee_name() {
+        WebElement empNameField = driver.findElement(
+                By.xpath("(//*[@placeholder='Type for hints...'])[1]"));
+        empNameField.sendKeys("Adam");
+    }
+
 
 }

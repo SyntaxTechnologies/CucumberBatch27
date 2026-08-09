@@ -14,10 +14,14 @@ public class LoginSteps extends CommonMethods {
 
     @Given("user is able to launch the application")
     public void user_is_able_to_launch_the_application() {
-       driver = new ChromeDriver();
+       /*
+        driver = new ChromeDriver();
        driver.manage().window().maximize();
        driver.get("http://148.72.132.33:8081/web/index.php/auth/login");
        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        */
+        openBrowserAndLaunchApplication();
     }
 
     @When("user enters username and password")

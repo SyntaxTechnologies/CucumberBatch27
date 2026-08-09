@@ -7,6 +7,7 @@ artifact/proof -
 execute my test cases across chrome, firefox, safari, edge etc
 write understandable test cases
 scalable, data driven
+execute all the test cases from one point
 
 
 java -
@@ -33,6 +34,9 @@ When user enters username and password
 And user clicks on login button
 Then user is navigated to homepage
 
+
+in common methods class - we are keeping all the methods which we will use in the framework
+to perform operations like click, send keys, dropdown, screenshots etc
 
 
 
