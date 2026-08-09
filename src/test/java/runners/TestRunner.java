@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
         //execution will be controlled based on the tags from here
        // tags = "@sprint1"
        // tags = "@sprint1 and @smoke"
-        tags = "@examples",
+        tags = "@sprint11",
         plugin = {"pretty"}
 )
 

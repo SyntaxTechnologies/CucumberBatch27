@@ -5,6 +5,11 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.CommonMethods;
+import utils.ExcelReader;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
 
@@ -14,6 +19,7 @@ public class AddEmployeeSteps extends CommonMethods {
         WebElement addEmployeeOption = driver.
                 findElement(By.xpath("(//*[text()='Add Employee'])[1]"));
         click(addEmployeeOption);
+
     }
 
     @When("user enters firstname and middlename and lastname")
@@ -59,5 +65,60 @@ public class AddEmployeeSteps extends CommonMethods {
         sendText(firstName, firstNameLoc);
         sendText(middleName, middleNameLoc);
         sendText(lastName, lastNameLoc);
+    }
+
+    @When("user adds employees from datatable and verify them")
+    public void user_adds_employees_from_datatable_and_verify_them(io.cucumber.datatable.DataTable dataTable) {
+        List<Map<String, String>> employeeNames = dataTable.asMaps();
+        //this variable will give us list of maps which we can put in loop
+        for (Map<String, String> employee : employeeNames){
+
+            WebElement firstNameLoc = driver.findElement(By.name("firstName"));
+            WebElement middleNameLoc = driver.findElement(By.name("middleName"));
+            WebElement lastNameLoc = driver.findElement(By.name("lastName"));
+
+            sendText(employee.get("firstName"), firstNameLoc);
+            sendText(employee.get("middleName"), middleNameLoc);
+            sendText(employee.get("lastname"), lastNameLoc);
+
+            WebElement saveButton = driver.findElement(By.xpath("//button[@type='submit']"));
+            click(saveButton);
+
+            //homework for validating the employee added
+
+            //after adding the button
+
+            WebElement addEmployeeOption = driver.
+                    findElement(By.xpath("(//*[text()='Add Employee'])[1]"));
+            click(addEmployeeOption);
+
+        }
+    }
+
+    @When("user adds employees from excel file and validate them")
+    public void user_adds_employees_from_excel_file_and_validate_them() throws IOException {
+        List<Map<String, String>> employeeNames = ExcelReader.read();
+        //this variable will give us list of maps which we can put in loop
+        for (Map<String, String> employee : employeeNames) {
+
+            WebElement firstNameLoc = driver.findElement(By.name("firstName"));
+            WebElement middleNameLoc = driver.findElement(By.name("middleName"));
+            WebElement lastNameLoc = driver.findElement(By.name("lastName"));
+
+            sendText(employee.get("firstName"), firstNameLoc);
+            sendText(employee.get("middleName"), middleNameLoc);
+            sendText(employee.get("lastName"), lastNameLoc);
+
+            WebElement saveButton = driver.findElement(By.xpath("//button[@type='submit']"));
+            click(saveButton);
+
+            //homework for validating the employee added
+
+            //after adding the button
+
+            WebElement addEmployeeOption = driver.
+                    findElement(By.xpath("(//*[text()='Add Employee'])[1]"));
+            click(addEmployeeOption);
+        }
     }
 }

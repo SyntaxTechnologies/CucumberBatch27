@@ -38,6 +38,9 @@ Then user is navigated to homepage
 in common methods class - we are keeping all the methods which we will use in the framework
 to perform operations like click, send keys, dropdown, screenshots etc
 
+if we have multiple scenarios in one feature and some steps are same across all of them till flow is not broken
+
+for every feature file, the background will be different
 
 
 
