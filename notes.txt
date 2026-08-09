@@ -42,6 +42,13 @@ if we have multiple scenarios in one feature and some steps are same across all 
 
 for every feature file, the background will be different
 
+page  object model design pattern
+
+for every page in the application, we create one page class - we keep all the locators of that page
+in this class and call it object repository
+
+we will access all these locators using keys
+
 
 
 

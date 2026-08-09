@@ -6,11 +6,12 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.LoginPage;
 import utils.CommonMethods;
 
-import java.time.Duration;
-
 public class LoginSteps extends CommonMethods {
+
+    LoginPage loginPage = new LoginPage();
 
     @Given("user is able to launch the application")
     public void user_is_able_to_launch_the_application() {
@@ -26,17 +27,21 @@ public class LoginSteps extends CommonMethods {
 
     @When("user enters username and password")
     public void user_enters_username_and_password() {
-        WebElement usernameField = driver.findElement(By.name("username"));
-        WebElement passwordField = driver.findElement(By.name("password"));
+     //   WebElement usernameField = driver.findElement(By.name("username"));
+      //  WebElement passwordField = driver.findElement(By.name("password"));
 
-        usernameField.sendKeys("hrm_user");
-        passwordField.sendKeys("Hrm_user@123");
+       // usernameField.sendKeys("hrm_user");
+       // passwordField.sendKeys("Hrm_user@123");
+
+        sendText("hrm_user", loginPage.usernameField);
+        sendText("Hrm_user@123", loginPage.passwordField);
     }
 
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
-        WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
-        loginButton.click();
+      //  WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
+       // loginButton.click();
+        click(loginPage.loginButton);
     }
 
     @Then("user is navigated to homepage")
@@ -51,11 +56,11 @@ public class LoginSteps extends CommonMethods {
 
     @When("user enters invalid username and password")
     public void user_enters_invalid_username_and_password() {
-        WebElement usernameField = driver.findElement(By.name("username"));
-        WebElement passwordField = driver.findElement(By.name("password"));
+      //  WebElement usernameField = driver.findElement(By.name("username"));
+      //  WebElement passwordField = driver.findElement(By.name("password"));
 
-        usernameField.sendKeys("hrm_user33444");
-        passwordField.sendKeys("Hrm_user@1235678");
+        loginPage.usernameField.sendKeys("hrm_user33444");
+        loginPage.passwordField.sendKeys("Hrm_user@1235678");
     }
 
 }
