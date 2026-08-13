@@ -16,6 +16,13 @@ public class LoginPage extends CommonMethods {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//*[@class='oxd-userdropdown-tab']")
+    public WebElement adminIcon;
+
+    @FindBy(xpath = "//*[text()='Time at Work']")
+    public WebElement timeAtWorkLoc;
+
+
     public LoginPage(){
         PageFactory.initElements(driver,this);
     }

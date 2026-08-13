@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -46,11 +47,18 @@ public class LoginSteps extends CommonMethods {
 
     @Then("user is navigated to homepage")
     public void user_is_navigated_to_homepage() {
+        //junit assertions - we have 2 types of assertions
+        //number 1 - validate the presence of  the element
+        //number 2 - validate the value - text value of that element
+        Assert.assertTrue(loginPage.adminIcon.isDisplayed());
+        String actualText = loginPage.timeAtWorkLoc.getText();
+        Assert.assertEquals("Time at Work", actualText);
         System.out.println("test passed");
     }
 
     @Then("user is able to see error message")
     public void user_is_able_to_see_error_message() {
+        Assert.assertEquals("Invalid credentials", "Invalid credentials");
         System.out.println("error message displayed");
     }
 

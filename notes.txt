@@ -49,6 +49,14 @@ in this class and call it object repository
 
 we will access all these locators using keys
 
+characteristics of framework
+no data should be passed hardcoded
+it should support data driven testing
+it should be scalable and easy to maintain
+it should generate proper reports
+
+
+
 
 
 

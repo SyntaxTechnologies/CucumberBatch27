@@ -25,6 +25,7 @@ public class EmployeeSearchPage  extends CommonMethods {
     @FindBy(xpath = "//*[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']")
     public WebElement searchButton;
 
+
     public EmployeeSearchPage(){
         PageFactory.initElements(driver, this);
     }

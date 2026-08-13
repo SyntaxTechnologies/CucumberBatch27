@@ -17,14 +17,12 @@ import org.junit.runner.RunWith;
         // if this is false, it will start the execution and will execute all the test cases
         dryRun = false,
         //execution will be controlled based on the tags from here
-       // tags = "@sprint1"
-       // tags = "@sprint1 and @smoke"
-        tags = "@sprint123",
-        plugin = {"pretty",
-                "html:target/cucumber.html", "json:target/cucumber.json",
-        "rerun:target/failed.txt"}
+        // tags = "@sprint1"
+        // tags = "@sprint1 and @smoke"
+        tags = "@regression",
+        plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json"}
         //re run is pending
 )
 
-public class TestRunner {
+public class RegressionRunner {
 }
