@@ -12,7 +12,7 @@ import utils.CommonMethods;
 
 public class LoginSteps extends CommonMethods {
 
-    LoginPage loginPage = new LoginPage();
+    //LoginPage loginPage = new LoginPage();
 
     @Given("user is able to launch the application")
     public void user_is_able_to_launch_the_application() {

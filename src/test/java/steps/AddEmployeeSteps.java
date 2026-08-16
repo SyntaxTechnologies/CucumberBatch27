@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
 
-    AddEmployeePage addEmployeePage = new AddEmployeePage();
+    //AddEmployeePage addEmployeePage = new AddEmployeePage();
 
 
     @When("user clicks on add employee option")
