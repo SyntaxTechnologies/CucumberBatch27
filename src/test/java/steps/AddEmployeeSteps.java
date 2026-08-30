@@ -2,10 +2,12 @@ package steps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.AddEmployeePage;
 import utils.CommonMethods;
+import utils.DBUtils;
 import utils.ExcelReader;
 
 import java.io.IOException;
@@ -15,6 +17,9 @@ import java.util.Map;
 public class AddEmployeeSteps extends CommonMethods {
 
     //AddEmployeePage addEmployeePage = new AddEmployeePage();
+    String employee_id;
+    String firstNameFront;
+    String lastNameFront;
 
 
     @When("user clicks on add employee option")
@@ -123,5 +128,37 @@ public class AddEmployeeSteps extends CommonMethods {
                     findElement(By.xpath("(//*[text()='Add Employee'])[1]"));
             click(addEmployeeOption);
         }
+    }
+
+
+    @When("user enters {string} and {string} and {string} values and captures employee id")
+    public void user_enters_and_and_values_and_captures_employee_id(String fn, String mn, String ln) {
+        WebElement firstNameLoc = driver.findElement(By.name("firstName"));
+        WebElement middleNameLoc = driver.findElement(By.name("middleName"));
+        WebElement lastNameLoc = driver.findElement(By.name("lastName"));
+
+
+        firstNameFront = fn;
+        lastNameFront = ln;
+
+        sendText(fn, firstNameLoc);
+        sendText(mn, middleNameLoc);
+        sendText(ln, lastNameLoc);
+
+        employee_id = addEmployeePage.idAutoGenField.getAttribute("value");
+    }
+
+    @Then("user is able to add employee sucessfully and we are validating it with backend data")
+    public void user_is_able_to_add_employee_sucessfully_and_we_are_validating_it_with_backend_data() {
+
+        String query = "select emp_firstname,emp_lastname from hs_hr_employee where employee_id=" + employee_id;
+        List<Map<String,String>> data = DBUtils.fetch(query);
+
+       String firstnameDb =  data.get(0).get("emp_firstname");
+       String lastnameDb =  data.get(0).get("emp_lastname");
+
+        Assert.assertEquals(firstNameFront, firstnameDb);
+        Assert.assertEquals(lastNameFront,lastnameDb);
+
     }
 }

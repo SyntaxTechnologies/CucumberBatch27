@@ -19,6 +19,9 @@ public class AddEmployeePage extends CommonMethods {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement saveButton;
 
+    @FindBy(xpath = "//label[normalize-space()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')] //input")
+    public WebElement idAutoGenField;
+
     //constructor
     public AddEmployeePage(){
         PageFactory.initElements(driver, this);

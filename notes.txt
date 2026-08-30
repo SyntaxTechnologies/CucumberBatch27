@@ -55,6 +55,7 @@ it should support data driven testing
 it should be scalable and easy to maintain
 it should generate proper reports
 
+API - Application programming interface
 
 
 

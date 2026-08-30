@@ -53,7 +53,7 @@ public class LoginSteps extends CommonMethods {
         Assert.assertTrue(loginPage.adminIcon.isDisplayed());
         String actualText = loginPage.timeAtWorkLoc.getText();
         Assert.assertEquals("Time at Work", actualText);
-        System.out.println("test passed");
+
     }
 
     @Then("user is able to see error message")

@@ -47,6 +47,11 @@ Feature: Add employee scenarios
 
 
 
+  @database
+  Scenario: Adding one employee using parameters
+    And user enters "adam" and "ms" and "belhoul" values and captures employee id
+    And user clicks on save button
+    Then user is able to add employee sucessfully and we are validating it with backend data
 
 
 
