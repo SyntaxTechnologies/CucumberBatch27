@@ -57,6 +57,26 @@ it should generate proper reports
 
 API - Application programming interface
 
+API automation using rest assured
+
+DSL domain specific language - rest assured
+it allows data to be passed in JSON format (key value pair)
+
+rest assured as a tool
+will add it in our framework
+
+Rest assured - it works based on BDD approach
+given - prepare the request
+when - sending the request/hitting the endpoint
+then - expected result validation
+
+in cucumber framework -
+feature file
+steps definitions
+runner class
+
+
+
 
 
 
